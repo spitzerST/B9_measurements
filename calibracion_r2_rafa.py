@@ -253,7 +253,7 @@ try:
     lo_source= instrument("TCPIP0::192.168.1.36::inst0::INSTR") #caso anritsu
      #telnetlib.Telnet("192.168.1.35",5025)
     lo_source.write("*idn?\r\n")
-    print("Connected to the LO signal generator: " + lo_source.read_some()+'\n')
+    print("Connected to the LO signal generator: " + lo_source.read()+'\n')
     lo_source.write("freq " + str(lo) +" mhz\r\n")
     lo_source.write("power 18 dbm\r\n")
     #lo_source.write("output off\r\n")

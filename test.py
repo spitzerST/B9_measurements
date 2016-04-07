@@ -3,20 +3,62 @@ from math import *
 import adc5g
 from visa import *
 import os
+import numpy
 
 
 print "inicio"
-directory = 'F:\RAFAEL RODRIGUEZ\google_drive_raig_account\B9_Prueba de conepto\[2016-04-05]\SRR y cal Roach 2-1'
+directory = 'F:\RAFAEL RODRIGUEZ\google_drive_raig_account\B9_Prueba de conepto\[2016-04-05]\SRR y cal Roach 2\Medidas\m'
 
 from time import gmtime, strftime
 print strftime("%d-%m-%Y", gmtime())
- :P 
+
 
 
 print directory
-time.sleep(2)
+#time.sleep(2)
 if not os.path.exists(directory):
     os.makedirs(directory)
+print(os.path.isdir(directory))
+print(os.path.exists(directory))
+
+if not os.path.exists(directory):
+    print("file exist")
+
+print(os.path.isfile("aux.txt"))
+
+
+y1=[] 
+y2=[]
+y3=[]
+y4=[]
+
+for i in range(10):
+    y1.append([i**1,i**2])
+    y2.append(i**2)
+    y3.append(i**3)
+    y4.append(i**4)
+
+aux=numpy.zeros((5,5))
+    
+
+import sys
+import csv
+
+#try:
+
+with open(directory + 'test'+str(1)+'.csv', 'wb') as f:
+    writer = csv.writer(f)
+    writer.writerows([ y1 , y2 ])
+
+#with open(directory + 'test'+str(1)+'.csv', 'wb') as csvfile:
+#    spamwriter = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
+
+#    spamwriter.writerow([y1[1],y2,str(y3),str(y4)])
+        #spamwriter.writerow(['Spam', 'Lovely Spam', 'Wonderful Spam'])
+
+print ('end')
+time.sleep(2)
+a=raw_input()
 '''
 
 bw=1000
@@ -81,7 +123,8 @@ g1.plot(razon_amplitud2)
 
 temp= raw_input() 
 
-'''
+
+
 rf_source = telnetlib.Telnet("192.168.1.34",5023)
 print "send idn"
 rf_source.write("*IDN?\r\n")
