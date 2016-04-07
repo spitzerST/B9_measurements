@@ -10,6 +10,7 @@ directory = 'F:\RAFAEL RODRIGUEZ\google_drive_raig_account\B9_Prueba de conepto\
 
 from time import gmtime, strftime
 print strftime("%d-%m-%Y", gmtime())
+ :P 
 
 
 print directory
